@@ -8,7 +8,8 @@ public class User {
 
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private Long id;
+   @Column(name = "id")
+   private int id;
 
    @Column(name = "name")
    private String firstName;
@@ -19,8 +20,8 @@ public class User {
    @Column(name = "email")
    private String email;
 
-   @OneToOne (cascade = CascadeType.ALL)
-   @JoinColumn(name = "car_id")
+   @OneToOne
+   @JoinColumn(name = "series")
    private Car car;
 
    public Car getCar() {
@@ -40,11 +41,11 @@ public class User {
       this.email = email;
    }
 
-   public Long getId() {
+   public int getId() {
       return id;
    }
 
-   public void setId(Long id) {
+   public void setId(int id) {
       this.id = id;
    }
 
